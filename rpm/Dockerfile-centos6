@@ -1,0 +1,9 @@
+FROM  italiangrid/build-centos6
+
+RUN yum -y install pkgconfig 
+
+USER build
+ADD Makefile ./yaim-storm.spec.in /home/build/
+WORKDIR /home/build
+
+CMD /bin/bash -c make
